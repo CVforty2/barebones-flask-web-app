@@ -1,5 +1,6 @@
 from flask import Flask
 from .auth.routes import auth_bp
+from .auth.oauth import google_bp
 
 def create_app():
     app = Flask(__name__)
@@ -13,9 +14,7 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'login'
 
-
-
-
     app.register_blueprint(auth_bp)
+    app.register_blueprint(google_bp, url_prefix='/login')
 
     return app

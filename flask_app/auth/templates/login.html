@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<button type="button" class="btn btn-dark"> <a href="{{url_for('google.google_login')}}">Login With Google</a> </button>
 <form method="post">
   {{form.hidden_tag()}}
   {{form.email.label}}{{form.email()}}
